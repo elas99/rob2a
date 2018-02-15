@@ -19,9 +19,9 @@
 |*                           - Dual Joystick Control with Arm - 1 Remote -                            *|
 |*                                      ROBOTC on VEX 2.0 Cortex                                      *|
 |*                                                                                                    *|
-|*       Notar báða snúðana á fjarstýringunni til þess að hreyfa robotinn fram og til baka,           *|
-|*       vinstri snúðurinn stjórnar vinstri mótorinum og hægri snúðurinn stjórnar hægri mótorinum     *|
-|*                                                                                                    *|
+|*       Notar bÃ¡Ã°a snÃºÃ°ana Ã¡ fjarstÃ½ringunni til Ã¾ess aÃ° hreyfa robotinn fram og til baka,           *|
+|*       vinstri snÃºÃ°urinn stjÃ³rnar vinstri mÃ³torinum og hÃ¦gri snÃºÃ°urinn stjÃ³rnar hÃ¦gri mÃ³torinum     *|
+|*       Takki 6U fÃ¦rir arminn upp og 6D fÃ¦rir hann niÃ°ur, Takki 8R stoppar rÃ³botinn                  *|
 |*                                        ROBOT CONFIGURATION                                         *|
 |*    NOTES:                                                                                          *|
 |*    1)  Ch1 is the X axis and Ch2 is the Y axis for the RIGHT joystick.                             *|
