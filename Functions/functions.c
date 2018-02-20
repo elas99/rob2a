@@ -24,3 +24,33 @@ void Controller()
 	   }
   }
 }
+
+int full_power = 127;
+
+
+void resetEncoder()
+{
+	SensorValue[leftEncoder]=0;
+	SensorValue[rightEncoder]=0;
+}
+
+void stopMotors()
+{
+	motor[rightMotor] = 0;
+	motor[leftMotor]  = 0;
+}
+const float rotations = 180.0;
+void Forward(float r)
+{
+  SensorValue[rightEncoder] = 0;    /* Clear the encoders for    */
+  SensorValue[leftEncoder]  = 0;    /* consistancy and accuracy. */
+
+  // While the encoders have not yet met their goal: (r * rotations) ie (3.0 * 360.0) or "three rotations"
+  while(SensorValue[rightEncoder] < (r * rotations) && SensorValue[leftEncoder] < (r * rotations))
+  {
+    motor[rightMotor] = 63;         /* Run both motors        */
+    motor[leftMotor]  = 63;         /* forward at half speed. */
+  }
+  motor[rightMotor] = 0;            /* Stop both motors!  This is important so that each function          */
+  motor[leftMotor]  = 0;            /* can act independantly as a "chunk" of code, without any loose ends. */
+}
