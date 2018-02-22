@@ -50,11 +50,8 @@ const float rotations = 180.0;  /* which is one full rotation of the wheel (ie. 
 //+++++++++++++++++++++++++++++++++++++++++++++| MAIN |+++++++++++++++++++++++++++++++++++++++++++++++
 task main()
 {
-  wait1Msec(10000);        // Wait 2000 milliseconds before continuing.
+          // Wait 2000 milliseconds before continuing.
 
-  int i;
-  for(i=0; i<1; i++)      // While 'i' is less than 4:
-  {
     Forward(4.5);         // Call function 'Forward(float)' and pass the float value '3.0' through.
     TurnLeft(1.3);				// Call function 'TurnLeft(float)' and pass the float value '1.3' through.
     Forward(4.5);
@@ -63,7 +60,7 @@ task main()
     TurnRight(1.78);
     Forward(4.5);
 
-  }
+
 }
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
