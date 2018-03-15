@@ -29,9 +29,17 @@ task main()
 	while(SensorValue(lightSensor) > 500)
 	{
 	}
-	while(SensorValue(lightSensor) < 500 && (SensorValue(sonarInput) > 50  || SensorValue(sonarInput) == -1))
+	while(SensorValue(lightSensor) < 500)
 	{
-		Forward(1);
+
+		if(SensorValue(sonarInput) > 50  || SensorValue(sonarInput) == -1)
+		{
+			Forward(1);
+		}
+		else
+		{
+			TurnLeft(1.3);
+		}
 	}
 
 }
