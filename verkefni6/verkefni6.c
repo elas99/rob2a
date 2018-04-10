@@ -54,39 +54,48 @@ task main()
     displayLCDPos(1,12);                                    //  L  C  R   |
     displayNextLCDNumber(SensorValue(rightFollower));   //  x  x  x   |
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -+
-
-    // RIGHT sensor sees dark:
-    if(SensorValue(rightFollower) > threshold)
-    {
-      // counter-steer right:
-      motor[leftMotor]  = 63;
-      motor[rightMotor] = 0;
-    }
-    // CENTER sensor sees dark:
-    if(SensorValue(middleFollower) > threshold)
-    {
-      // go straight
-      motor[leftMotor]  = 63;
-      motor[rightMotor] = 63;
-    }
-    // LEFT sensor sees dark:
-    if(SensorValue(leftFollower) > threshold)
-    {
-      // counter-steer left:
-      motor[leftMotor]  = 0;
-      motor[rightMotor] = 63;
-    }
+		if(SensorValue(sonarInput) > 20 || SensorValue(sonarInput) == -1)
+    	{
+			    // RIGHT sensor sees dark:
+			    if(SensorValue(rightFollower) > threshold)
+			    {
+			      // counter-steer right:
+			      motor[leftMotor]  = 63;
+			      motor[rightMotor] = 0;
+			    }
+			    // CENTER sensor sees dark:
+			    if(SensorValue(middleFollower) > threshold)
+			    {
+			      // go straight
+			      motor[leftMotor]  = 63;
+			      motor[rightMotor] = 63;
+			    }
+			    // LEFT sensor sees dark:
+			    if(SensorValue(leftFollower) > threshold)
+			    {
+			      // counter-steer left:
+			      motor[leftMotor]  = 0;
+			      motor[rightMotor] = 63;
+			    }
+			    }
     if(vexRT[Btn8R] == 1)
 	   {
 	     running = false;
 	   }
-    if(SensorValue(sonarInput) < 27 || SensorValue(sonarInput) == -1)
+    if(SensorValue(sonarInput) <  20 || SensorValue(sonarInput) == -1)
     	{
+
     		motor[leftMotor]  = 0;
       	motor[rightMotor] = 0;
      	  wait1Msec(2000);
+     	  motor[clawMotor] = 0;
+				motor[clawMotor] = -40; 		//...open the gripper.
+				wait1Msec(500);
+				motor[clawMotor] = 0;
+				wait1Msec(500);
     		motor[clawMotor] = 40; 		//...close the gripper.\
   	 	 	wait10Msec(500);
+  	 	 	motor[clawMotor] = 0;
   	 		TurnLeft(3);
   		}
 
