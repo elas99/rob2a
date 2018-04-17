@@ -57,21 +57,21 @@ task main()
 		if(SensorValue(sonarInput) > 20 || SensorValue(sonarInput) == -1)
     	{
 			    // RIGHT sensor sees dark:
-			    if(SensorValue(rightFollower) > threshold)
+			    if(SensorValue(rightFollower) > 2500)
 			    {
 			      // counter-steer right:
 			      motor[leftMotor]  = 63;
 			      motor[rightMotor] = 0;
 			    }
 			    // CENTER sensor sees dark:
-			    if(SensorValue(middleFollower) > threshold)
+			    if(SensorValue(middleFollower) > 2300)
 			    {
 			      // go straight
 			      motor[leftMotor]  = 63;
 			      motor[rightMotor] = 63;
 			    }
 			    // LEFT sensor sees dark:
-			    if(SensorValue(leftFollower) > threshold)
+			    if(SensorValue(leftFollower) > 2500)
 			    {
 			      // counter-steer left:
 			      motor[leftMotor]  = 0;
@@ -82,14 +82,15 @@ task main()
 	   {
 	     running = false;
 	   }
-    if(SensorValue(sonarInput) <  20 || SensorValue(sonarInput) == -1)
+    if(SensorValue(sonarInput) <  21 || SensorValue(sonarInput) == -1)
     	{
 
     		motor[leftMotor]  = 0;
       	motor[rightMotor] = 0;
-     	  wait1Msec(2000);
+     	  wait1Msec(500);
      	  motor[clawMotor] = 0;
-				motor[clawMotor] = -40; 		//...open the gripper.
+				wait1Msec(500);
+				motor[clawMotor] = -40;
 				wait1Msec(500);
 				motor[clawMotor] = 0;
 				wait1Msec(500);
@@ -105,4 +106,3 @@ task main()
 
   }
 }
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
